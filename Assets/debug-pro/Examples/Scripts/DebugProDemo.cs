@@ -4,11 +4,12 @@ namespace NKLogger.Demo
 {
     public class DebugProDemo : MonoBehaviour
     {
-        private void Awake()
+        private void Reset()
         {
             Debug.Log("Default Log");
             Debug.LogWarning("Default Log Warning");
             Debug.LogError("Default Log Error");
+            DebugPro.Log("This is test debug by DebugPro", this, null, gameObject);
             
             new DemoClass().Foo();
             new DemoStruct().Foo();
@@ -38,7 +39,7 @@ namespace NKLogger.Demo
     {
         public static void Foo()
         {
-            DebugPro.LogError("Log Error from DemoStruct by DemoStaticClass!", prefix: nameof(DemoStaticClass));
+            DebugPro.LogError("Log Error from DemoStaticClass with cyan color by argument", prefix: nameof(DemoStaticClass), colorText: Color.cyan);
         }
     }
 
