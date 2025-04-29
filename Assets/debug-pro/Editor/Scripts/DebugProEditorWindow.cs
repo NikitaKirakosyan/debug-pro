@@ -13,7 +13,7 @@ namespace NKLogger.Editor
         private DebugProSettings DebugProSettings => _debugProSettings ??= Resources.Load<DebugProSettings>("DebugProSettings");
 
 
-        [MenuItem("Window/Debug Pro")]
+        [MenuItem("Window/Debug Pro Settings")]
         public static void ShowWindow()
         {
             var window = GetWindow<DebugProEditorWindow>();
