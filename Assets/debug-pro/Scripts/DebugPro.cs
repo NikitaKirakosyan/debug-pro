@@ -80,7 +80,7 @@ namespace NKLogger
             else
                 message = $"<color=#{color}>[{prefixResult}]</color> <b>\"{callerMemberName}\"</b>. {message}";
 #else
-            message = $"[{prefixResult}] \"{memberName}\". {message}";
+            message = $"[{prefixResult}] \"{callerMemberName}\". {message}";
 #endif
 
             if(context)
