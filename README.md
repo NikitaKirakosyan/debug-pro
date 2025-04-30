@@ -14,6 +14,7 @@ Copy the Assets/debug-pro folder into your project.
 * Colorized - only the prefix or the entire text can be colored _**(adjustable by settings)**_
 * Color theme - automatically calculates text color and caches it for better performance. But you can also specify the color manually
 * Settings window - allows you to specify the default prefix, color saturation, color value, and full colorized option. _**(Top menu -> Window/Debug Pro Settings)**_
+* Thread-safe code - uses smart color caching to avoid multithreading issues
 
 ## 🖼️ Showcase
 ### _Built-in logs & DebugPro logs_
@@ -23,7 +24,7 @@ Copy the Assets/debug-pro folder into your project.
 ![image](https://github.com/user-attachments/assets/42182ef5-394e-40ae-a948-cf722a218181)
 
 ### _DebugPro settings_
-![image](https://github.com/user-attachments/assets/28f73ded-ad69-4328-ab04-e7cf902358d1)
+![image](https://github.com/user-attachments/assets/e76b134e-4234-4f29-9629-413ec961c02f)
 
 ### _Examples of use_
 ![image](https://github.com/user-attachments/assets/42222864-2bee-49e5-9571-e3d12bbba2c7)
