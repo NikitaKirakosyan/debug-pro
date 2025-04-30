@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 using UnityEngine;
 
 namespace NKLogger
@@ -6,9 +6,9 @@ namespace NKLogger
     public static class DebugPro
     {
 #if UNITY_EDITOR
-        private static Dictionary<string, string> CachedColors = new ();
+        private static ConcurrentDictionary<string, string> CachedColors = new ();
         private static DebugProSettings _settings;
-        
+
         private static DebugProSettings Settings => _settings ??= Resources.Load<DebugProSettings>("DebugProSettings");
 #endif
 
@@ -47,8 +47,11 @@ namespace NKLogger
 
         public static void Reset()
         {
-            CachedColors = new Dictionary<string, string>();
-        } 
+            if(CachedColors == null)
+                CachedColors = new ConcurrentDictionary<string, string>();
+            else
+                CachedColors.Clear();
+        }
 
 
         private static void Log(LogType logType,
@@ -89,23 +92,22 @@ namespace NKLogger
                 Debug.unityLogger.Log(logType, message);
         }
 
-        private static string GetPrefixColor(string channel)
+        private static string ComputeColor(string prefix)
         {
-            if(string.IsNullOrEmpty(channel))
-                return null;
-
-            if(CachedColors.TryGetValue(channel, out var existingColor))
-                return existingColor;
-
-            var hash = channel.GetHashCode();
+            var hash = prefix.GetHashCode();
             var uHash = unchecked((uint)hash);
             const uint max = 0xFFFFFF;
             var hue = (uHash & max) / (float)max;
             var color = Color.HSVToRGB(hue, Settings.saturation, Settings.value);
-            var colorString = ColorUtility.ToHtmlStringRGB(color);
+            return ColorUtility.ToHtmlStringRGB(color);
+        }
 
-            CachedColors.Add(channel, colorString);
-            return colorString;
+        private static string GetPrefixColor(string prefix)
+        {
+            if(string.IsNullOrEmpty(prefix))
+                return null;
+
+            return CachedColors.GetOrAdd(prefix, ComputeColor(prefix));
         }
     }
 }
