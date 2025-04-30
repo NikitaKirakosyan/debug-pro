@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69adebef1ca5be4a953fc859b4f4412, type: 3}
   m_Name: DebugProSettings
   m_EditorClassIdentifier: 
+  prefix: DebugPro
+  saturation: 0.6
+  value: 0.8
+  isFullColorized: 0
