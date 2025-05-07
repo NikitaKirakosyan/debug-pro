@@ -4,8 +4,9 @@
 
 A utility that improves the flow for working with debugging in Unity.
 
-## Manual
-Copy the Assets/debug-pro folder into your project.
+## Installation options
+1) Copy the Assets/debug-pro folder into your project.
+2) Download and import '.unitypackage' from [release](https://github.com/NikitaKirakosyan/debug-pro/releases/latest) into your project.
 
 ## ✨ Features
 * Prefixes - in the form of a caller, custom or default DebugPro _**(adjustable by settings)**_
