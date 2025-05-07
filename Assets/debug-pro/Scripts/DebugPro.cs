@@ -12,7 +12,7 @@ namespace NKLogger
         private static DebugProSettings Settings => _settings ??= Resources.Load<DebugProSettings>("DebugProSettings");
 #endif
 
-        public static void Log(string message,
+        public static void Log(object message,
             object caller = null,
             string prefix = null,
             Object context = null,
@@ -23,7 +23,7 @@ namespace NKLogger
             Log(LogType.Log, message, caller, prefix, context, editorOnly, colorText, callerMemberName);
         }
 
-        public static void LogWarning(string message,
+        public static void LogWarning(object message,
             object caller = null,
             string prefix = null,
             Object context = null,
@@ -34,7 +34,7 @@ namespace NKLogger
             Log(LogType.Warning, message, caller, prefix, context, editorOnly, colorText, callerMemberName);
         }
 
-        public static void LogError(string message,
+        public static void LogError(object message,
             object caller = null,
             string prefix = null,
             Object context = null,
@@ -55,7 +55,7 @@ namespace NKLogger
 
 
         private static void Log(LogType logType,
-            string message,
+            object message,
             object caller = null,
             string prefix = null,
             Object context = null,
