@@ -10,8 +10,10 @@ namespace NKLogger.Demo
             Debug.LogWarning("Default Log Warning");
             Debug.LogError("Default Log Error");
             DebugPro.Log("This is test debug by DebugPro", this, null, gameObject);
-            
-            new DemoClass().Foo();
+            DebugPro.Log(123, this, null, gameObject);
+
+            var demoClass = new DemoClass();
+            DebugPro.Log(demoClass, this, null, gameObject);
             new DemoStruct().Foo();
             DemoStaticClass.Foo();
             new Player().TakeDamage(30);
