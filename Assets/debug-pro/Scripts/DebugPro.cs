@@ -5,12 +5,10 @@ namespace NKLogger
 {
     public static class DebugPro
     {
-#if UNITY_EDITOR
         private static ConcurrentDictionary<string, string> CachedColors = new ();
         private static DebugProSettings _settings;
 
         private static DebugProSettings Settings => _settings ??= Resources.Load<DebugProSettings>("DebugProSettings");
-#endif
 
         public static void Log(object message,
             object caller = null,
